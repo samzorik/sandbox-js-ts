@@ -65,7 +65,7 @@ export default function EditorPage() {
                     // Execute the transpiled JavaScript
                     new Function(jsCode)();
                   } catch (error) {
-                    capturedOutput += `Error: ${error.message}\n`;
+                    capturedOutput += `Error: ${error}\n`;
                   } finally {
                     console.log = originalConsoleLog; // Restore original console.log
                     setConsoleOutput(capturedOutput);
