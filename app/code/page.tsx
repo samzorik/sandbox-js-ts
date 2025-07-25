@@ -89,7 +89,8 @@ export default function EditorPage() {
                 defaultValue="// what good shall we do this day?"
                 className="bg-background h-[720px] shadow-lg"
             />
-            <textarea value={consoleOutput} readOnly={true} name="result" id="result" rows={10} cols={30}></textarea>
+            <textarea value={consoleOutput} readOnly={true} name="result" id="result" rows={10} cols={30} style={{ backgroundColor: '#1e1e1e'}}
+                      className="bg-background h-[720px] shadow-lg"></textarea>
             <button id="y-run-button" className="px-4 py-3 bg-neutral-200 rounded font-medium hover:bg-neutral-300 transition duration-300 dark:bg-neutral-500 dark:hover:bg-neutral-600">Run</button>
             <button id="y-connect-button" className="px-4 py-3 bg-neutral-200 rounded font-medium hover:bg-neutral-300 transition duration-300 dark:bg-neutral-500 dark:hover:bg-neutral-600">👋 Disconnect</button>
         </section>
