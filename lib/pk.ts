@@ -1,6 +1,7 @@
 import type * as Party from "partykit/server";
 import { onConnect } from "y-partykit";
 import * as Y from "yjs";
+import { PartyRequest } from 'partykit/server'
 
 export default class Server implements Party.Server {
   constructor(public room: Party.Room) { }
@@ -22,5 +23,8 @@ export default class Server implements Party.Server {
         },
       },
     });
+  }
+  onRequest(req: PartyRequest) {
+    return new Response("Hello via HTTP");
   }
 }

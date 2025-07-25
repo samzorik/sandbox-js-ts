@@ -17,9 +17,9 @@ export default function EditorPage() {
                 // create a yew yjs doc
                 const ydoc = new Y.Doc();
                 // establish partykit as your websocket provider
-                const provider = new YPartyKitProvider("http://localhost:1999", "nextjs-monaco-demo", ydoc, {
+                const provider = new YPartyKitProvider("https://partykit-nextjs-monaco-editor-example-party.samzorik.partykit.dev", "nextjs-monaco-demo", ydoc, {
                     // @ts-expect-error TODO: fix this
-                    WebSocketPolyfill: BetterWebSocket
+                    WebSocketPolyfill: BetterWebSocket,
                 });
                 // send a readiness check to partykit
                 provider.ws?.send("it's happening!");
