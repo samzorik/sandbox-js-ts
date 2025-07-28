@@ -13,6 +13,7 @@ export default function EditorPage() {
   const monaco = useMonaco();
   const [consoleOutput, setConsoleOutput] = useState("");
   const [loading, setLoading] = useState(true);
+  const [runInProgress, setRunInProgress] = useState(false);
   const providerRef = useRef<YPartyKitProvider | null>(null)
 
   useEffect(() => {
@@ -86,8 +87,11 @@ export default function EditorPage() {
           setConsoleOutput(capturedOutput);
         }
         try {
+          setRunInProgress(true)
           eval(jsCode);
+          setRunInProgress(false)
         } catch (error) {
+          setRunInProgress(false)
           console.error("Error during execution:", error);
         }
       });
@@ -120,9 +124,9 @@ export default function EditorPage() {
           <div className="flex gap-2">
             <button
               id="y-run-button"
-              className="px-4 py-3 bg-neutral-200 rounded font-medium hover:bg-neutral-300 transition duration-300 dark:bg-neutral-500 dark:hover:bg-neutral-600"
+              className="px-4 py-3 bg-yellow-300 rounded font-medium hover:bg-yellow-400 text-neutral-700 transition duration-300"
             >
-              Run
+              <span className="flex gap-2 items-center">Run<img src={"/gear.svg"} alt={"gear"} className={runInProgress ? 'animate-spin w-5 h-5 text-neutral-700' : 'w-5 h-5 text-neutral-700'}></img></span>
             </button>
             <button
               id="y-connect-button"
