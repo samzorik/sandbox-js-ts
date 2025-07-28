@@ -82,17 +82,21 @@ export default function EditorPage() {
     }, [monaco]);
 
     return (
-        <section className="min-h-screen items-center justify-center mx-auto max-w-2xl space-y-2 m-5">
+        <section className="flex flex-col gap-1 justify-center max-h-screen mx-auto max-w-2xl p-4">
+            Code
             <Editor
                 theme="vs-dark"
                 defaultLanguage="javascript"
                 defaultValue="// what good shall we do this day?"
-                className="bg-background h-[720px] shadow-lg"
+                className="bg-background h-[620px] shadow-lg"
             />
+            Result
             <textarea value={consoleOutput} readOnly={true} name="result" id="result" rows={10} cols={30} style={{ backgroundColor: '#1e1e1e'}}
                       className="bg-background h-[720px] shadow-lg"></textarea>
+          <div className="flex gap-2">
             <button id="y-run-button" className="px-4 py-3 bg-neutral-200 rounded font-medium hover:bg-neutral-300 transition duration-300 dark:bg-neutral-500 dark:hover:bg-neutral-600">Run</button>
             <button id="y-connect-button" className="px-4 py-3 bg-neutral-200 rounded font-medium hover:bg-neutral-300 transition duration-300 dark:bg-neutral-500 dark:hover:bg-neutral-600">👋 Disconnect</button>
+          </div>
         </section>
     )
 }
