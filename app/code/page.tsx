@@ -66,7 +66,7 @@ export default function EditorPage() {
         }
       });
       const runButton = document.getElementById("y-run-button")!;
-      runButton.addEventListener("click", () => {
+      runButton.addEventListener("click", async () => {
         const tsCode = monaco?.editor.getEditors()[0].getValue()!;
         const jsCode = ts.transpile(tsCode);
         let capturedOutput = "";
@@ -88,7 +88,7 @@ export default function EditorPage() {
         }
         try {
           setRunInProgress(true)
-          eval(jsCode);
+          await eval(jsCode);
           setRunInProgress(false)
         } catch (error) {
           setRunInProgress(false)
