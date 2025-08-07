@@ -9,7 +9,14 @@ import { MonacoBinding } from "y-monaco";
 import * as Y from "yjs";
 import * as ts from "typescript";
 
-export default function EditorPage() {
+interface RoomPageProps {
+  params: {
+    id: string; // The ID will be a string from the URL
+  };
+}
+
+export default function RoomPage({params}: RoomPageProps) {
+  const { id } = params;
   const monaco = useMonaco();
   const [consoleOutput, setConsoleOutput] = useState("");
   const [loading, setLoading] = useState(true);
@@ -24,7 +31,7 @@ export default function EditorPage() {
         // establish partykit as your websocket provider
         const provider = new YPartyKitProvider(
           "https://partykit-nextjs-monaco-editor-example-party.samzorik.partykit.dev",
-          "nextjs-monaco-demo",
+          id,
           ydoc,
           {
             // @ts-expect-error TODO: fix this
