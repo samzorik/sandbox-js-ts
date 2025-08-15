@@ -80,7 +80,7 @@ export default function RoomPage({params}: RoomPageProps) {
         const originalConsoleLog = console.log;
 
         console.log = (...args) => {
-          capturedOutput += args.join(" ") + "\n";
+          capturedOutput += args.map((arg) => JSON.stringify(arg)).join(" ") + "\n";
           originalConsoleLog(...args); // Optionally log to browser console as well
         };
 
@@ -91,6 +91,7 @@ export default function RoomPage({params}: RoomPageProps) {
           capturedOutput += `Error: ${error}\n`;
         } finally {
           console.log = originalConsoleLog; // Restore original console.log
+          console.log("Captured Output:", capturedOutput);
           setConsoleOutput(capturedOutput);
         }
         try {
