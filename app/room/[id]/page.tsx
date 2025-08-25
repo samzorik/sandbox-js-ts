@@ -107,11 +107,12 @@ export default function RoomPage({params}: RoomPageProps) {
   }, [loading]);
 
   return (
-    <section className="flex flex-col gap-1 justify-center max-h-screen mx-auto max-w-2xl p-4">
+    <section className="flex flex-col gap-1 justify-center max-h-screen mx-auto max-w-6xl p-4">
       {!loading && <>Code</>}
       <Editor
+        height="620px"
         theme="vs-dark"
-        defaultLanguage="javascript"
+        defaultLanguage="typescript"
         defaultValue="// what good shall we do this day?"
         className="bg-background h-[620px] shadow-lg"
         onMount={() => setLoading(false)}

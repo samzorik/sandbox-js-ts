@@ -16,7 +16,6 @@ export default function Home() {
   const handleClick = () => {
     const id = generateRandomString(5);
     router.push(`/room/${id}`);
-    console.log('was pushed');
   }
 
   return (

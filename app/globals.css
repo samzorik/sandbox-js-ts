@@ -10,7 +10,6 @@
 
 * {
   box-sizing: border-box;
-  max-height: 100vh;
 }
 
 @media (prefers-color-scheme: dark) {
